@@ -70,31 +70,6 @@ public class Main {
                     System.out.println("   *****            ... wrong input try again ...        *****   ");
                     break;
             }
-
-
-            // processBuilder.command("bash", "-c", command);
-
-    
-            //Boiler plate initialization
-            /* Process process = processBuilder.start();
-            StringBuilder output = new StringBuilder();
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(process.getInputStream()));
-    
-            //Creating output string
-            String line;
-            while ((line = reader.readLine()) != null) {
-                output.append(line + "\n");
-            }
-    
-            int exitVal = process.waitFor();
-            if (exitVal == 0) {
-                System.out.println(output);
-            } else {
-                System.out.println("Wrong command");
-                //abnormal...
-            }
-     */
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -102,11 +77,7 @@ public class Main {
         }
 
     }
-
-    // close the scanner
     sc.close();
-
-
     }
 
 }
