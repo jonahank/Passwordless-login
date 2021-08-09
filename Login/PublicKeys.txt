@@ -1,0 +1,100 @@
+-- user 1
+{
+    user:
+        'jonkr.alice@itu.dk',
+    public_key: 
+    '-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    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
+    T5K/aRWmZ5U1/khBucEVufMX
+    =emn2
+    -----END PGP PUBLIC KEY BLOCK-----',
+
+}
+-- user 2
+{
+    user: 
+        'jonkr.login.com@itu.dk',
+    public_key:
+        '-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+        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
+        UU4WeAJOi+4VuP3NkZRpEWbhOK9hGPLra2EI
+        =5o9f
+        -----END PGP PUBLIC KEY BLOCK-----',
+}
+-- user 3
+{
+
+
+}
