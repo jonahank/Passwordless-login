@@ -78,18 +78,15 @@ public class LoginCom {
             userInput = loginSC.nextLine();
             if (userInput.equals(OTP)) System.out.println("Authentication complete!");
 
-            else {
-            // No information leak if user exists or not
-    
-            System.out.println("Type in decrypted OTP");
-            userInput = loginSC.nextLine();
-            if (userInput.equals(generate()));
-            System.out.println("Authentication fail!");
+            
+        } else {
+        // No information leak if user exists or not
 
-            }
+        System.out.println("Type in decrypted OTP");
+        userInput = loginSC.nextLine();
+        if (userInput.equals(generate()));
+        System.out.println("Authentication fail!");
         }
-
-
     }
 
     // Helper method for random OTP
@@ -105,5 +102,10 @@ public class LoginCom {
 
         return pass;
     }
+
+    // TODO: Create account
+    // TODO: Add timer if user is not fast enough
+    // TODO: Account retrieval by email/revoke keys
+    // TODO: Clean up code
     
 }
