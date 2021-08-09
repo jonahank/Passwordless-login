@@ -57,10 +57,12 @@ public class Decryptz {
     
             int exitVal = process.waitFor();
             if (exitVal == 0) {
-                System.out.println("                     " + output);
-                System.out.println("   *****                                                 *****   ");
+                System.out.println("                 " + output);
                 System.out.println("   *****   -------------------------------------------   *****   ");
                 System.out.println("   *****                    OTP ABOVE                    *****   ");
+                System.out.println("   *****                                                 *****   ");
+                System.out.println("   *****                                                 *****   ");
+                System.out.println("   *****                                                 *****   ");
                 
                 return true;
             } else {
