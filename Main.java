@@ -28,7 +28,8 @@ public class Main {
         System.out.println("   *****   ___________________________________________   *****   ");
         System.out.println("   *****                                                 *****   ");
         System.out.println("   *****   1 -> Decrypt password-less                    *****   ");
-        System.out.println("   *****   2 -> Advanced settings                        *****   ");
+        System.out.println("   *****   2 -> Create new local key-pair                *****   ");
+        System.out.println("   *****   3 -> Advanced settings                        *****   ");
         System.out.println("   *****   Q -> QUIT                                     *****   ");
         System.out.println("   *****   ___________________________________________   *****   ");
         System.out.println("   *****                                                 *****   ");
@@ -44,14 +45,19 @@ public class Main {
             switch (command) {
                 // Decrypting message
                 case "1":
-                Decryptz.decrypt();
-                break;
+                    Decryptz.decrypt();
+                    break;
                 
                 case "2":
-                //TODO
-                    System.out.println("   *****            ... wrong input try again ...        *****   ");
+                    Createz.create();
                     break;
+
+                case "3":
+                    System.out.println("   *****             ... not implemented yet ...         *****   ");
+                    break;
+
                 default:
+                    System.out.println("   *****            ... wrong input try again ...        *****   ");
                     break;
             }
 
