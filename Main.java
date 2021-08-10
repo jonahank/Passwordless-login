@@ -10,6 +10,9 @@ public class Main {
     String command = "";
     String currentUser = "[please set local user]";
 
+    // Print front page
+    // Headerz.printPGL();
+
     // Tutorial
     System.out.println("   ***********************************************************   ");
     System.out.println("   ***********************************************************   ");
