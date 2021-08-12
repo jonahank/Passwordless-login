@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class Decryptz {
 
-    public static boolean decrypt() throws IOException, InterruptedException {
+    public static String decrypt() throws IOException, InterruptedException {
 
         Scanner sc = new Scanner(System.in);
         ProcessBuilder processBuilder = new ProcessBuilder();
@@ -36,12 +36,7 @@ public class Decryptz {
         // If correct, perform GPG commands in Unix Linux commandline and output the OTP to the user.
         if (command.toUpperCase().equals("Y")){
             
-            // perform decryption
-            // processBuilder.command("bash", "-c", encryptedMsg);
-            System.out.println("   *****                    OTP BELOW                    *****   ");
-            System.out.println("   *****   -------------------------------------------   *****   ");
-            System.out.println("   *****                                                 *****   ");
-        
+            // perform decryption        
             processBuilder.command("bash", "-c", "gpg --decrypt encmsg.txt");
     
             //Boiler plate initialization
@@ -57,25 +52,20 @@ public class Decryptz {
     
             int exitVal = process.waitFor();
             if (exitVal == 0) {
-                System.out.println("                 " + output);
-                System.out.println("   *****   -------------------------------------------   *****   ");
-                System.out.println("   *****                    OTP ABOVE                    *****   ");
-                System.out.println("   *****                                                 *****   ");
-                System.out.println("   *****                                                 *****   ");
-                System.out.println("   *****                                                 *****   ");
-                
-                return true;
+                System.out.println("   *****               Decryption successful!            *****   ");
+                return output.toString();
+
             } else {
                 System.out.println("This shouldn't happen. Contact devs pls!");
-                
-                return false;
+                return null;
+
             }   
         } else {
             // user put wrong message returning to main
             System.out.println("   *****   ___________________________________________   *****   ");
             System.out.println("   *****                                                 *****   ");
             System.out.println("   *****            ... returning to menu ...            *****   ");
-            return false;
+            return null;
         }
 
         }
