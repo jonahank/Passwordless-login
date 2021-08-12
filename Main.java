@@ -12,46 +12,42 @@ public class Main {
     String OTP = "[choose 'Decrypt password-less']";
 
     // Print front page
-    // Headerz.printPGL();
+    Headerz.printPGL();
 
     // Tutorial
-    System.out.println("   ***********************************************************   ");
-    System.out.println("   ***********************************************************   ");
-    System.out.println("   *****                                                 *****   ");
-    System.out.println("   *****          Welcome to the PGP-console-UI          *****   ");
-    System.out.println("   *****   -------------------------------------------   *****   ");
-    System.out.println("   *****      Write your commands in the Linux shell     *****   ");
-    System.out.println("   *****   Follow the directions and write 'Q' to QUIT   *****   ");
+
+    System.out.println("             *****                                                 *****   ");
+    System.out.println("             *****           Welcome to your PGL-session!          *****   ");
+    System.out.println("             *****   -------------------------------------------   *****   ");
+    System.out.println("             *****       Write your commands in the terminal       *****   ");
+    System.out.println("             *****   Follow the directions and write 'Q' to QUIT   *****   ");
     
     while (running) {
         // menu screen
-        System.out.println("   *****   -------------------------------------------   *****   ");
-        System.out.println("           OTP: " + OTP + "      ");
-        System.out.println("   *****   -------------------------------------------   *****   ");
-        System.out.println("   *****                                                 *****   ");
-        System.out.println("   *****   1 -> Decrypt password-less                    *****   ");
-        System.out.println("   *****   2 -> Create new local key-pair                *****   ");
-        //System.out.println("   *****   3 -> Set current local user                   *****   ");
-        //System.out.println("   *****   4 -> Advanced settings                        *****   ");
-        System.out.println("   *****   Q -> QUIT                                     *****   ");
-        System.out.println("   *****                                                 *****   ");
-        System.out.println("   *****   -------------------------------------------   *****   ");
-        System.out.println("   *****              .. awaiting command ...            *****   ");
+        System.out.println("             *****   -------------------------------------------   *****   ");
+        System.out.println("                     OTP: " + OTP + "  ");
+        System.out.println("             *****   -------------------------------------------   *****   ");
+        System.out.println("             *****                                                 *****   ");
+        System.out.println("             *****   1 -> Decrypt password-less                    *****   ");
+        System.out.println("             *****   2 -> Create new local key-pair                *****   ");
+        System.out.println("             *****   Q -> QUIT                                     *****   ");
+        System.out.println("             *****                                                 *****   ");
+        System.out.println("             *****   -------------------------------------------   *****   ");
+        System.out.println("             *****             .. awaiting command ...             *****   ");
         
         // checking user input
         command = sc.nextLine();
         if (command.toUpperCase().equals("Q")) {
-            System.out.println("   *****   -------------------------------------------   *****   ");
-            System.out.println("   *****                                                 *****   ");
-            System.out.println("   *****                 ... quitting ...                *****   ");
-            System.out.println("   *****                                                 *****   ");
-            System.out.println("   *****   -------------------------------------------   *****   ");
+            System.out.println("             *****                                                 *****   ");
+            System.out.println("             *****                 ... quitting ...                *****   ");
+            System.out.println("             *****                                                 *****   ");
+            System.out.println("             *****   -------------------------------------------   *****   ");
             break;
         }
         try {
             String tmp;
             switch (command) {
-                // Decrypting message
+
                 case "1":
                     tmp = Decryptz.decrypt();
                     OTP = (tmp == null)? "[choose 'Decrypt password-less']" : tmp;
@@ -61,18 +57,9 @@ public class Main {
                     tmp = Createz.create();
                     currentUser = (tmp == null)? "[please set local user]" : tmp;
                     break;
-                    
-                /* case "3":
-                    tmp = SetUserz.setUser();
-                    currentUser = (tmp == null)?"[please set local user]" : tmp ;
-                    break; */
-
-                /* case "4":
-                    System.out.println("   *****             ... not implemented yet ...         *****   ");
-                    break; */
 
                 default:
-                    System.out.println("   *****            ... wrong input try again ...        *****   ");
+                    System.out.println("             *****            ... wrong input try again ...        *****   ");
                     break;
             }
         } catch (IOException e) {
@@ -80,7 +67,6 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
     sc.close();
     }

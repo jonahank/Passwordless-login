@@ -12,12 +12,13 @@ public class Decryptz {
         ProcessBuilder processBuilder = new ProcessBuilder();
 
         
-        System.out.println("   ***********************************************************   ");
-        System.out.println("   *****                                                 *****   ");
-        System.out.println("   *****       Update encrypted_message.txt with OTP     *****   ");
-        System.out.println("   *****   ___________________________________________   *****   ");
-        System.out.println("   *****                                                 *****   ");
-        System.out.println("   *****             (press enter when done)             *****   ");
+        System.out.println("             ***********************************************************   ");
+        System.out.println("             *****                                                 *****   ");
+        System.out.println("             *****       Update encmsg.txt with the text sent      *****   ");
+        System.out.println("             *****              to your personal email             *****   ");
+        System.out.println("             *****   ___________________________________________   *****   ");
+        System.out.println("             *****                                                 *****   ");
+        System.out.println("             *****             (press enter when done)             *****   ");
         String command = "";
         command = sc.nextLine();
 
@@ -29,7 +30,7 @@ public class Decryptz {
             System.out.println(OTPReader.nextLine());
         }
         System.out.println();
-        System.out.println("   *****            Is this your message (Y/N)?          *****   ");
+        System.out.println("             *****            Is this your message (Y/N)?          *****   ");
         OTPReader.close();
         command = sc.nextLine();
 
@@ -52,19 +53,19 @@ public class Decryptz {
     
             int exitVal = process.waitFor();
             if (exitVal == 0) {
-                System.out.println("   *****               Decryption successful!            *****   ");
+                System.out.println("             *****               Decryption successful!            *****   ");
                 return output.toString();
 
             } else {
-                System.out.println("This shouldn't happen. Contact devs pls!");
+                System.out.println("                        This shouldn't happen. Contact devs pls!");
                 return null;
 
             }   
         } else {
             // user put wrong message returning to main
-            System.out.println("   *****   ___________________________________________   *****   ");
-            System.out.println("   *****                                                 *****   ");
-            System.out.println("   *****            ... returning to menu ...            *****   ");
+            System.out.println("             *****   ___________________________________________   *****   ");
+            System.out.println("             *****                                                 *****   ");
+            System.out.println("             *****            ... returning to menu ...            *****   ");
             return null;
         }
 
