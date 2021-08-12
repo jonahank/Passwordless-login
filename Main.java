@@ -9,6 +9,7 @@ public class Main {
     boolean running = true;
     String command = "";
     String currentUser = "[please set local user]";
+    String OTP = "[choose 'Decrypt password-less']";
 
     // Print front page
     // Headerz.printPGL();
@@ -25,13 +26,13 @@ public class Main {
     while (running) {
         // menu screen
         System.out.println("   *****   -------------------------------------------   *****   ");
-        System.out.println("           Current local user: " + currentUser + "      ");
+        System.out.println("           OTP: " + OTP + "      ");
         System.out.println("   *****   -------------------------------------------   *****   ");
         System.out.println("   *****                                                 *****   ");
         System.out.println("   *****   1 -> Decrypt password-less                    *****   ");
-        System.out.println("   *****   2 -> Set current local user                   *****   ");
-        System.out.println("   *****   3 -> Create new local key-pair                *****   ");
-        System.out.println("   *****   4 -> Advanced settings                        *****   ");
+        System.out.println("   *****   2 -> Create new local key-pair                *****   ");
+        //System.out.println("   *****   3 -> Set current local user                   *****   ");
+        //System.out.println("   *****   4 -> Advanced settings                        *****   ");
         System.out.println("   *****   Q -> QUIT                                     *****   ");
         System.out.println("   *****                                                 *****   ");
         System.out.println("   *****   -------------------------------------------   *****   ");
@@ -52,22 +53,23 @@ public class Main {
             switch (command) {
                 // Decrypting message
                 case "1":
-                    Decryptz.decrypt();
+                    tmp = Decryptz.decrypt();
+                    OTP = (tmp == null)? "[choose 'Decrypt password-less']" : tmp;
                     break;
 
                 case "2":
-                    tmp = SetUserz.setUser();
-                    currentUser = (tmp == null)?"[please set local user]" : tmp ;
-                    break;
-                
-                case "3":
                     tmp = Createz.create();
                     currentUser = (tmp == null)? "[please set local user]" : tmp;
                     break;
+                    
+                /* case "3":
+                    tmp = SetUserz.setUser();
+                    currentUser = (tmp == null)?"[please set local user]" : tmp ;
+                    break; */
 
-                case "4":
+                /* case "4":
                     System.out.println("   *****             ... not implemented yet ...         *****   ");
-                    break;
+                    break; */
 
                 default:
                     System.out.println("   *****            ... wrong input try again ...        *****   ");
