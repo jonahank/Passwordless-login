@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.security.SecureRandom;
+import java.sql.Timestamp;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
@@ -40,7 +41,7 @@ public class LoginCom {
             String outputForEmail = "test";
 
             // Encrypt OTP using Alice public key
-            String command = "echo \"" + OTP + "\" | gpg -ear " + userInput;
+            String command = "echo \"" + OTP + "\" | gpg -u Login.com -esar " + userInput;
             // System.out.println("command is: " + command);
             processBuilder.command("bash", "-c", command );
     
@@ -73,19 +74,26 @@ public class LoginCom {
                 e.printStackTrace();
               }
 
-            // Prompt user
+            // Prompt user and start timer for max 60 seconds
+            long startTime = System.currentTimeMillis();
             System.out.println("Type in decrypted OTP");
             userInput = loginSC.nextLine();
-            if (userInput.equals(OTP)) System.out.println("Authentication complete!");
+            long endTime = System.currentTimeMillis()-startTime;
+            if (endTime >= 20000) System.out.println("Time limit exceeded! Authentication failed!");
+            else if (userInput.equals(OTP)) System.out.println("Authentication complete!");
+            else System.out.println("Authentication failed!");
 
             
         } else {
         // No information leak if user exists or not
 
+        long startTime = System.currentTimeMillis();
         System.out.println("Type in decrypted OTP");
         userInput = loginSC.nextLine();
-        if (userInput.equals(generate()));
-        System.out.println("Authentication fail!");
+        long endTime = System.currentTimeMillis()-startTime;
+        if (endTime >= 20000) System.out.println("Time limit exceeded! Authentication failed!");
+        else if (userInput.equals(generate()));
+        System.out.println("Authentication failed!");
         }
     }
 
@@ -96,7 +104,7 @@ public class LoginCom {
         String pass = "";
         for (int i = 0; i < 32; i++) {
             // from 33 dec. to 126 dec. in ASCII Table
-            int OTP = sr.nextInt(43)+47;
+            int OTP = sr.nextInt(9)+48;
             pass += (char) OTP;
         }
 
