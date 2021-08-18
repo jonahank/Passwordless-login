@@ -1,0 +1,27 @@
+
+
+## PRE-SETUP
+1) Create 2 local key-pairs on you Kali (use "gpg --gen-key" or go to ##SETUP 3b) 
+    First key-pair (name: Alice, email: jonkr.alice@itu.dk)
+    Second key-pair (name: Login.com, email: jonkr.login.com@itu.dk)
+
+## SETUP
+1) Download and save the PGL.zip and extract the folder to you Desktop
+2) Open the terminal and change directory to the PGL-folder
+3) Type "java Main" in the terminal to start PGL
+3b) Optional: create the two local key-pairs using PGL
+4) You are now setup!
+
+## GENERATING AND SENDING THE ENCRYPTED OTP
+1) Open another terminal and change directory to the PGL-folder
+2) Type "java Login/LoginCom" in the terminal to start the server
+3) Type "jonkr.alice@itu.dk" when the server prompts for an email
+4) You have now 'received an email' in the PGL-folder with the encrypted OTP expiring in 60 seconds!
+5) Type in the decrypted OTP an be authenticated
+
+## DECRYPTING THE OTP
+1) Use the terminal from ##SETUP or open a new terminal and change directory to the PGL-folder
+2) Type "1" to start the decrypting process
+3) Press "ENTER" if you have successfully generated the OTP using the server terminal (see the above section)
+3b) Double check that the encrypted OTP is correct and press "y"
+4) The decrypted OTP should now be displayed in the UI, only consisting of digits, and can be typed in on the server
